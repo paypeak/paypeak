@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPeak - Moliyaviy Xavfsizlik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --color-primary: #2EC762;
+            --color-dark-green-start: #22776F;
+            --color-dark-green-end: #134A45;
+            --color-text-black: #18181A;
+            --color-text-grey: #3B3F48;
+            --color-text-light: #DADEE6;
+            --color-bg-light: #F7F7F7;
+            --color-bg-white: #FFFFFF;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg-white);
+            color: var(--color-text-black);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font-family: var(--font-main);
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 30px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 900;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo span { color: var(--color-primary); }
+
+        .lang-switch {
+            background: rgba(255, 255, 255, 1);
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .flag-icon {
+            width: 21px;
+            height: 15px;
+            background: linear-gradient(to bottom, #00B731 33%, #FFFFFF 33%, #FFFFFF 66%, #03BCDB 66%); /* Simple CSS flag approx */
+            border-radius: 2px;
+            border: 1px solid #eee;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(180deg, var(--color-dark-green-start) 0%, var(--color-dark-green-end) 92.04%);
+            padding-top: 150px;
+            padding-bottom: 100px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Abstract circles in background */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(46, 199, 98, 0.1);
+            border-radius: 50%;
+            top: 50%;
+            right: -100px;
+            filter: blur(80px);
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 50px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            color: var(--color-text-light);
+            margin-bottom: 40px;
+            line-height: 1.4;
+        }
+
+        .btn-primary {
+            background-color: #EAFAF0;
+            color: var(--color-primary);
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            flex-grow: 1;
+            height: 400px;
+            /* Placeholder for the dashboard image */
+            background: url('path-to-your-dashboard-image.png') no-repeat center center / contain;
+            /* Since we don't have the real image asset, we style a placeholder box */
+            background: rgba(255,255,255,0.05);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-visual::after {
+            content: "Dashboard Visualization";
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* --- FEATURES (PayPeak bu) --- */
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 80px;
+            color: var(--color-text-black);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #E5E7EB;
+            gap: 60px;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-title {
+            font-size: 32px;
+            font-weight: 500;
+            width: 40%;
+            line-height: 1.2;
+        }
+
+        .feature-desc {
+            width: 55%;
+            font-size: 18px;
+            color: var(--color-text-grey);
+            line-height: 1.6;
+        }
+
+        /* --- MISSION SECTION (Bizning vazifamiz) --- */
+        .mission {
+            padding: 80px 0;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .mission-card {
+            border-radius: 24px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-blue { background-color: #E4F1FF; }
+        .card-purple { background-color: #EDEFFF; }
+        .card-beige {
+            background-color: #FAF1E3;
+            grid-column: span 2;
+            min-height: 350px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mission-card h3 {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .mission-card p {
+            color: #2A496B;
+            line-height: 1.6;
+            max-width: 450px;
+            z-index: 2;
+        }
+
+        .visual-placeholder {
+            margin-top: auto;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            margin-top: 40px;
+        }
+
+        /* --- PRICING (Ta'riflarimiz) --- */
+        .pricing {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background-color: var(--color-bg-light);
+            border-radius: 20px;
+            padding: 40px;
+            width: 380px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .pricing-card.dark {
+            background: linear-gradient(180deg, #161616 0%, #242424 100%);
+            color: white;
+        }
+
+        .price-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .plan-name {
+            font-size: 42px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 50px;
+            font-weight: 700;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .btn-green {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--color-primary);
+        }
+
+        /* --- CONTACT SECTION --- */
+        .contact {
+            padding-bottom: 100px;
+        }
+
+        .contact-box {
+            background: linear-gradient(180deg, #22776F 0%, #134A45 92.04%);
+            border-radius: 32px;
+            padding: 60px;
+            display: flex;
+            gap: 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-text {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .contact-text h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .contact-text p {
+            font-size: 20px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            font-family: var(--font-main);
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .btn-submit {
+            background-color: white;
+            color: var(--color-primary);
+            width: 100%;
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #ADB3BF; /* Matches image grey bar */
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-contact {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-label {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .contact-value {
+            font-weight: 600;
+            color: var(--color-text-black);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-btn {
+            width: 44px;
+            height: 44px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-black);
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .hero-layout, .feature-item, .contact-box {
+                flex-direction: column;
+            }
+            .hero-text, .feature-title, .feature-desc {
+                width: 100%;
+                text-align: center;
+            }
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+            .card-beige {
+                grid-column: span 1;
+                flex-direction: column;
+            }
+            .pricing-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card {
+                width: 100%;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <span>Pay</span>Peak
+        </div>
+        <div class="lang-switch">
+            <div class="flag-icon"></div>
+            O'zb
+            <span>▼</span>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-layout">
+        <div class="hero-text">
+            <h1>Kichik qarzlar katta inqirozlarga sabab bo'lishiga yo'l qo'ymang</h1>
+            <p>Har bir kechiktirilgan to'lov – moliyaviy inqirozga ochilgan yangi eshik</p>
+            <button class="btn-primary">Biz bilan bog'lanish</button>
+        </div>
+        <div class="hero-visual">
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">PayPeak bu</h2>
+
+        <div class="feature-item">
+            <div class="feature-title">Debitorlik qarzlaringizni tartibga soluvchi aqlli yordamchi</div>
+            <div class="feature-desc">
+                Biz oddiy hisob-kitob dasturi emasmiz. PayPeak — bu biznesingizning aylanma mablag'larini himoya qiluvchi raqamli ekotizim: kechiktirilgan to'lovlarni avtomatik kuzatish, risklarni oldindan bashorat qilish va pul oqimini barqarorlashtirish. Chalkashliklarga chek qo'ying — moliyaviy xavfsizlikni bizga topshiring.
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-title">Qarzdorlikdagi tartibsizlikni yo‘qotuvchi raqamli himoyachi</div>
+            <div class="feature-desc">
+                Biz faqat faktura chiqaruvchi oddiy dastur emasmiz. PayPeak — biznesingizning pul aylanmasini saqlab qoluvchi to‘liq ekotizim: to‘lov kechikishlarini avtomatik nazorat qilish, xavfli holatlarni erta aniqlash va naqd pul oqimini uzluksiz barqarorlashtirish.
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-title">Aylanma mablag‘laringiz uchun aqlli qalqon</div>
+            <div class="feature-desc">
+                Shunchaki hisob-kitob vositasi emasmiz. PayPeak — bu debitorlik jarayonidagi barcha murakkabliklarga chek qo‘yuvchi raqamli platforma: kechikkan to‘lovlarni real vaqtda kuzatish, potentsial risklarni bashorat qilish va pul oqimining doimiy barqarorligini ta’minlash.
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mission">
+    <div class="container">
+        <h2 class="section-title">Bizning vazifamiz</h2>
+
+        <div class="mission-grid">
+            <div class="mission-card card-blue">
+                <h3>Sizning vaqtingizni va asabingizni tejash</h3>
+                <p>Har kuni soatlab kutish, qo‘lda eslatma yozish va "qachon to‘laydi?" degan savollardan xalos bo‘ling – hamma jarayon avtomatik, tez va stresssiz.</p>
+                <div class="visual-placeholder">Grafik Tasviri</div>
+            </div>
+
+            <div class="mission-card card-purple">
+                <h3>Qarzlar monitoringi</h3>
+                <p>Endi har bir debitorlik summasi, muddat va kechikish real vaqtda nazorat ostida. Tizim o'zi kuzatadi va eslatadi.</p>
+                <div class="visual-placeholder">Mobil Ilova Tasviri</div>
+            </div>
+
+            <div class="mission-card card-beige">
+                <div>
+                    <h3>Strategik tahlil</h3>
+                    <p>Strategik tahlil bilan PayPeak sizga real vaqtda ma'lumotlar taqdim etadi: mijozlarning to'lov odatlari va moliyaviy prognozlar.</p>
+                </div>
+                <div class="visual-placeholder" style="min-width: 300px;">Tahlil Tasviri</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pricing">
+    <div class="container">
+        <h2 class="section-title">Ta'riflarimiz</h2>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="price-header">
+                    <span class="plan-name">Start</span>
+                    <span class="plan-price">$9</span>
+                </div>
+                <ul class="features-list">
+                    <li><span class="check-icon">✓</span> 1 ta biznes</li>
+                    <li><span class="check-icon">✓</span> 700 ta sms</li>
+                </ul>
+                <button class="btn-full btn-green">Biz bilan bog'lanish</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="price-header">
+                    <span class="plan-name">Pro</span>
+                    <span class="plan-price">$25</span>
+                </div>
+                <ul class="features-list">
+                    <li><span class="check-icon">✓</span> 2 ta filial</li>
+                    <li><span class="check-icon">✓</span> Avto-SMS 500 ta</li>
+                    <li><span class="check-icon">✓</span> Avto-qo'ng'iroq 1000 ta</li>
+                    <li><span class="check-icon">✓</span> Bir nechta valyuta</li>
+                    <li><span class="check-icon">✓</span> Bot orqali hisobot</li>
+                    <li><span class="check-icon">✓</span> Qora ro'yxat & status</li>
+                </ul>
+                <button class="btn-full btn-green">Biz bilan bog'lanish</button>
+            </div>
+
+            <div class="pricing-card dark">
+                <div class="price-header">
+                    <span class="plan-name">Special</span>
+                    <span class="plan-price">$65</span>
+                </div>
+                <ul class="features-list">
+                    <li><span class="check-icon">✓</span> 10 tagacha filiallar</li>
+                    <li><span class="check-icon">✓</span> Avto-qo'ng'iroq 5000 ta</li>
+                    <li><span class="check-icon">✓</span> 3000 ta mijoz qo'shish</li>
+                    <li><span class="check-icon">✓</span> Bir nechta valyuta</li>
+                    <li><span class="check-icon">✓</span> Bot orqali hisobot</li>
+                    <li><span class="check-icon">✓</span> Qora ro'yxat & status</li>
+                    <li><span class="check-icon">✓</span> Sun'iy intellekt</li>
+                </ul>
+                <button class="btn-full btn-white">Biz bilan bog'lanish</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact">
+    <div class="container">
+        <div class="contact-box">
+            <div class="contact-text">
+                <h2>Biz bilan bog'laning</h2>
+                <p>Har qanday savol yoki muammo bo‘yicha gaplashishga tayyormiz. Kontakt qoldiring – maslahatchilarimiz tez orada siz bilan bog‘lanib, PayPeak qanday yordam berishi mumkinligini batafsil aytib beradi.</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label>Ism</label>
+                        <input type="text" placeholder="Ismingizni kiriting">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon raqam</label>
+                        <input type="text" placeholder="+998">
+                    </div>
+                    <div class="form-group">
+                        <label>Biznesingiz</label>
+                        <textarea placeholder="Biznesingiz haqida"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Yuborish ➔</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-content">
+        <div class="logo" style="color: #333;">
+            <span style="color: var(--color-primary);">Pay</span>Peak
+        </div>
+        <div class="footer-contact">
+            <div class="contact-item">
+                <span class="contact-label">Telefon raqam</span>
+                <span class="contact-value">+99893 809 64 94</span>
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-btn">📷</a>
+                <a href="#" class="social-btn">f</a>
+                <a href="#" class="social-btn">✈</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

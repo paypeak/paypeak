@@ -19,6 +19,7 @@
             --color-bg-light: #F7F7F7;
             --color-bg-white: #FFFFFF;
             --font-main: 'Inter', sans-serif;
+            --color-green-shape: #C8E6C9;
         }
 
         * {
@@ -178,10 +179,7 @@
         }
 
         /* --- FEATURES (PayPeak bu) --- */
-        .features {
-            padding: 100px 0;
-            background-color: white;
-        }
+
 
         .section-title {
             font-size: 48px;
@@ -215,6 +213,73 @@
             font-size: 18px;
             color: var(--color-text-grey);
             line-height: 1.6;
+        }
+
+        .features {
+            padding: 100px 0;
+            background-color: #F6F6F6;
+            position: relative; /* Needed for absolute positioning of shapes */
+            overflow: hidden; /* Ensure shapes don't overflow the section */
+        }
+
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 80px;
+            color: var(--color-text-black);
+            font-weight: bold;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #E5E7EB;
+            gap: 60px;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .feature-title {
+            font-size: 32px;
+            font-weight: 500;
+            width: 40%;
+            line-height: 1.2;
+            color: var(--color-text-black);
+        }
+
+        .feature-desc {
+            width: 55%;
+            font-size: 18px;
+            color: var(--color-text-grey);
+            line-height: 1.6;
+        }
+
+        /* Green Shapes Styles */
+        .green-shape {
+            position: absolute;
+            background-color: var(--color-green-shape);
+            z-index: 0; /* Place behind the content */
+            border-radius: 50%; /* Make them rounded */
+        }
+
+        .green-shape.top-right {
+            top: -100px; /* Adjust position as needed */
+            right: -50px; /* Adjust position as needed */
+            width: 300px; /* Adjust size as needed */
+            height: 300px; /* Adjust size as needed */
+        }
+
+        .green-shape.bottom-left {
+            bottom: -100px; /* Adjust position as needed */
+            left: -50px; /* Adjust position as needed */
+            width: 300px; /* Adjust size as needed */
+            height: 300px; /* Adjust size as needed */
         }
 
         /* --- MISSION SECTION (Bizning vazifamiz) --- */
@@ -272,14 +337,12 @@
             margin-top: auto;
             background: white;
             border-radius: 16px;
-            padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             min-height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #ccc;
-            margin-top: 40px;
         }
 
         .visual-placeholder img {
@@ -1884,6 +1947,8 @@
                 font-size: 16px;
                 line-height: 19px;
             }
+
+
         }
 
         /* Ensure the container is a reference point for absolute positioning */
@@ -2000,6 +2065,9 @@
 </section>
 
 <section class="features">
+    <div class="green-shape top-right"></div>
+    <div class="green-shape bottom-left"></div>
+
     <div class="container">
         <h2 class="section-title">PayPeak bu</h2>
 
@@ -2027,7 +2095,7 @@
             <div class="feature-desc">
                 Shunchaki hisob-kitob vositasi emasmiz. PayPeak — bu debitorlik jarayonidagi barcha murakkabliklarga
                 chek qo‘yuvchi raqamli platforma: kechikkan to‘lovlarni real vaqtda kuzatish, potentsial risklarni
-                bashorat qilish va pul oqimining doimiy barqarorligini ta’minlash.
+                bashorat qilish va pul oqimini doimiy barqarorligini ta’minlash.
             </div>
         </div>
     </div>
@@ -2062,8 +2130,8 @@
                     <p>Strategik tahlil bilan PayPeak sizga real vaqtda ma'lumotlar taqdim etadi: mijozlarning to'lov
                         odatlari va moliyaviy prognozlar.</p>
                 </div>
-                <div class="visual-placeholder" style="min-width: 300px;">
-                    <img src="image/strategic-analysis.svg" alt="Tahlil Tasviri" style="width: 80%;">
+                <div class="visual-placeholder" >
+                    <img src="image/strategic-analysis.png" alt="Tahlil Tasviri" style="width: 80%;">
                 </div>
             </div>
         </div>
@@ -2160,12 +2228,12 @@
         <div class="footer-contact">
             <div class="contact-item">
                 <span class="contact-label"><img src="image/call.png" alt="Call Icon" width="12" style="margin-right: 2px;">Telefon raqam</span>
-                <span class="contact-value"><a href="tel:+998938096494" style="color: inherit; text-decoration: none;">+99893 809 64 94</a></span>
+                <span class="contact-value"><a href="tel:+998938096494" style="color: inherit; text-decoration: none;">+998938096494</a></span>
             </div>
             <div class="social-icons">
-                <a href="#" class="social-btn"><img src="image/instagram.png" alt="Instagram" width="24"></a>
-                <a href="#" class="social-btn"><img src="image/facebook.png" alt="Facebook" width="24"></a>
-                <a href="#" class="social-btn"><img src="image/telegram.png" alt="Telegram" width="24"></a>
+                <a href="#" class="social-btn"><img src="image/instagram.png" alt="Instagram" width="36"></a>
+                <a href="#" class="social-btn"><img src="image/facebook.png" alt="Facebook" width="36"></a>
+                <a href="#" class="social-btn"><img src="image/telegram.png" alt="Telegram" width="36"></a>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PayPeak - Moliyaviy Xavfsizlik</title>
+    <title data-i18n="pageTitle">PayPeak - Moliyaviy Xavfsizlik</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -727,7 +727,7 @@
 
         .ellipse-10{
             position: absolute;
-            width: 50%;
+            width: 40%;
             height:  50%;
 
             background: #FFB137;
@@ -861,6 +861,33 @@
             background-color: #5fa85b;
         }
 
+        .lang-switch {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-switch-dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .lang-switch-dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .lang-switch-dropdown a:hover {background-color: #f1f1f1}
+
+        .lang-switch:hover .lang-switch-dropdown {
+            display: block;
+        }
+
 
     </style>
 </head>
@@ -873,8 +900,13 @@
         </div>
         <div class="lang-switch">
             <div class="flag-icon"></div>
-            O'zb
+            <span id="lang-text" data-i18n="lang">O'zb</span>
             <span>▼</span>
+            <div class="lang-switch-dropdown">
+                <a href="#" onclick="setLanguage('uz')">O'zb</a>
+                <a href="#" onclick="setLanguage('en')">Eng</a>
+                <a href="#" onclick="setLanguage('ru')">Рус</a>
+            </div>
         </div>
     </div>
 </header>
@@ -882,10 +914,10 @@
 <section class="hero">
     <div class="container hero-layout">
         <div class="hero-text">
-            <h1>Kichik qarzlar katta inqirozlarga sabab bo'lishiga yo'l qo'ymang</h1>
-            <p>Har bir kechiktirilgan to'lov – moliyaviy inqirozga ochilgan yangi eshik</p>
+            <h1 data-i18n="heroTitle">Kichik qarzlar katta inqirozlarga sabab bo'lishiga yo'l qo'ymang</h1>
+            <p data-i18n="heroSubtitle">Har bir kechiktirilgan to'lov – moliyaviy inqirozga ochilgan yangi eshik</p>
             <button class="btn-primary">
-                <a href="#contactForm">Biz bilan bog'lanish</a>
+                <a href="#contactForm" data-i18n="contactUs">Biz bilan bog'lanish</a>
             </button>
         </div>
 
@@ -906,11 +938,11 @@
     <div class="green-shape bottom-left"></div>
 
     <div class="container">
-        <h2 class="section-title">PayPeak bu</h2>
+        <h2 class="section-title" data-i18n="paypeakIs">PayPeak bu</h2>
 
         <div class="feature-item">
-            <div class="feature-title">Debitorlik qarzlaringizni tartibga soluvchi aqlli yordamchi</div>
-            <div class="feature-desc">
+            <div class="feature-title" data-i18n="feature1Title">Debitorlik qarzlaringizni tartibga soluvchi aqlli yordamchi</div>
+            <div class="feature-desc" data-i18n="feature1Desc">
                 Biz oddiy hisob-kitob dasturi emasmiz. PayPeak — bu biznesingizning aylanma mablag'larini himoya
                 qiluvchi raqamli ekotizim: kechiktirilgan to'lovlarni avtomatik kuzatish, risklarni oldindan bashorat
                 qilish va pul oqimini barqarorlashtirish. Chalkashliklarga chek qo'ying — moliyaviy xavfsizlikni bizga
@@ -919,8 +951,8 @@
         </div>
 
         <div class="feature-item">
-            <div class="feature-title">Qarzdorlikdagi tartibsizlikni yo‘qotuvchi raqamli himoyachi</div>
-            <div class="feature-desc">
+            <div class="feature-title" data-i18n="feature2Title">Qarzdorlikdagi tartibsizlikni yo‘qotuvchi raqamli himoyachi</div>
+            <div class="feature-desc" data-i18n="feature2Desc">
                 Biz faqat faktura chiqaruvchi oddiy dastur emasmiz. PayPeak — biznesingizning pul aylanmasini saqlab
                 qoluvchi to‘liq ekotizim: to‘lov kechikishlarini avtomatik nazorat qilish, xavfli holatlarni erta
                 aniqlash va naqd pul oqimini uzluksiz barqarorlashtirish.
@@ -928,8 +960,8 @@
         </div>
 
         <div class="feature-item">
-            <div class="feature-title">Aylanma mablag‘laringiz uchun aqlli qalqon</div>
-            <div class="feature-desc">
+            <div class="feature-title" data-i18n="feature3Title">Aylanma mablag‘laringiz uchun aqlli qalqon</div>
+            <div class="feature-desc" data-i18n="feature3Desc">
                 Shunchaki hisob-kitob vositasi emasmiz. PayPeak — bu debitorlik jarayonidagi barcha murakkabliklarga
                 chek qo‘yuvchi raqamli platforma: kechikkan to‘lovlarni real vaqtda kuzatish, potentsial risklarni
                 bashorat qilish va pul oqimini doimiy barqarorligini ta’minlash.
@@ -940,12 +972,12 @@
 
 <section class="mission">
     <div class="container">
-        <h2 class="section-title">Bizning vazifamiz</h2>
+        <h2 class="section-title" data-i18n="ourMission">Bizning vazifamiz</h2>
 
         <div class="mission-grid">
             <div class="mission-card card-blue">
-                <h3>Sizning vaqtingizni va asabingizni tejash</h3>
-                <p>Har kuni soatlab kutish, qo‘lda eslatma yozish va "qachon to‘laydi?" degan savollardan xalos bo‘ling
+                <h3 data-i18n="mission1Title">Sizning vaqtingizni va asabingizni tejash</h3>
+                <p data-i18n="mission1Desc">Har kuni soatlab kutish, qo‘lda eslatma yozish va "qachon to‘laydi?" degan savollardan xalos bo‘ling
                     – hamma jarayon avtomatik, tez va stresssiz.</p>
                 <div class="visual-placeholder">
                     <div class="ellipse-11"></div>
@@ -954,8 +986,8 @@
             </div>
 
             <div class="mission-card card-purple">
-                <h3>Qarzlar monitoringi</h3>
-                <p>Endi har bir debitorlik summasi, muddat va kechikish real vaqtda nazorat ostida. Tizim o'zi kuzatadi
+                <h3 data-i18n="mission2Title">Qarzlar monitoringi</h3>
+                <p data-i18n="mission2Desc">Endi har bir debitorlik summasi, muddat va kechikish real vaqtda nazorat ostida. Tizim o'zi kuzatadi
                     va eslatadi.</p>
                 <div class="visual-placeholder">
                     <div class="ellipse-12"></div>
@@ -965,8 +997,8 @@
 
             <div class="mission-card card-beige">
                 <div>
-                    <h3>Strategik tahlil</h3>
-                    <p>Strategik tahlil bilan PayPeak sizga real vaqtda ma'lumotlar taqdim etadi: mijozlarning to'lov
+                    <h3 data-i18n="mission3Title">Strategik tahlil</h3>
+                    <p data-i18n="mission3Desc">Strategik tahlil bilan PayPeak sizga real vaqtda ma'lumotlar taqdim etadi: mijozlarning to'lov
                         odatlari va moliyaviy prognozlar.</p>
                 </div>
                 <div class="visual-placeholder" >
@@ -980,52 +1012,52 @@
 
 <section class="pricing">
     <div class="container">
-        <h2 class="section-title">Ta'riflarimiz</h2>
+        <h2 class="section-title" data-i18n="ourTariffs">Ta'riflarimiz</h2>
 
         <div class="pricing-grid">
             <div class="pricing-card">
                 <div class="price-header">
-                    <span class="plan-name">Start</span>
-                    <span class="plan-price">$9</span>
+                    <span class="plan-name" data-i18n="tariffStart">Start</span>
+                    <span class="plan-price" data-i18n="tariffStartPrice">$9</span>
                 </div>
                 <ul class="features-list">
-                    <li><span class="check-icon">✓</span> 1 ta biznes</li>
-                    <li><span class="check-icon">✓</span> 700 ta sms</li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureBusiness1">1 ta biznes</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureSms700">700 ta sms</span></li>
                 </ul>
-                <button class="btn-full btn-green">Biz bilan bog'lanish</button>
+                <button class="btn-full btn-green" data-i18n="contactUs">Biz bilan bog'lanish</button>
             </div>
 
             <div class="pricing-card">
                 <div class="price-header">
-                    <span class="plan-name">Pro</span>
-                    <span class="plan-price">$25</span>
+                    <span class="plan-name" data-i18n="tariffPro">Pro</span>
+                    <span class="plan-price" data-i18n="tariffProPrice">$25</span>
                 </div>
                 <ul class="features-list">
-                    <li><span class="check-icon">✓</span> 2 ta filial</li>
-                    <li><span class="check-icon">✓</span> Avto-SMS 500 ta</li>
-                    <li><span class="check-icon">✓</span> Avto-qo'ng'iroq 1000 ta</li>
-                    <li><span class="check-icon">✓</span> Bir nechta valyuta</li>
-                    <li><span class="check-icon">✓</span> Bot orqali hisobot</li>
-                    <li><span class="check-icon">✓</span> Qora ro'yxat & status</li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureBranches2">2 ta filial</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureAutoSms500">Avto-SMS 500 ta</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureAutoCall1000">Avto-qo'ng'iroq 1000 ta</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureMultiCurrency">Bir nechta valyuta</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureBotReport">Bot orqali hisobot</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureBlacklistStatus">Qora ro'yxat & status</span></li>
                 </ul>
-                <button class="btn-full btn-green">Biz bilan bog'lanish</button>
+                <button class="btn-full btn-green" data-i18n="contactUs">Biz bilan bog'lanish</button>
             </div>
 
             <div class="pricing-card dark">
                 <div class="price-header">
-                    <span class="plan-name">Special</span>
-                    <span class="plan-price">$65</span>
+                    <span class="plan-name" data-i18n="tariffSpecial">Special</span>
+                    <span class="plan-price" data-i18n="tariffSpecialPrice">$65</span>
                 </div>
                 <ul class="features-list">
-                    <li><span class="check-icon">✓</span> 10 tagacha filiallar</li>
-                    <li><span class="check-icon">✓</span> Avto-qo'ng'iroq 5000 ta</li>
-                    <li><span class="check-icon">✓</span> 3000 ta mijoz qo'shish</li>
-                    <li><span class="check-icon">✓</span> Bir nechta valyuta</li>
-                    <li><span class="check-icon">✓</span> Bot orqali hisobot</li>
-                    <li><span class="check-icon">✓</span> Qora ro'yxat & status</li>
-                    <li><span class="check-icon">✓</span> Sun'iy intellekt</li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureBranches10">10 tagacha filiallar</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureAutoCall5000">Avto-qo'ng'iroq 5000 ta</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureClients3000">3000 ta mijoz qo'shish</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureMultiCurrency">Bir nechta valyuta</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureBotReport">Bot orqali hisobot</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureBlacklistStatus">Qora ro'yxat & status</span></li>
+                    <li><span class="check-icon">✓</span> <span data-i18n="featureAI">Sun'iy intellekt</span></li>
                 </ul>
-                <button class="btn-full btn-white">Biz bilan bog'lanish</button>
+                <button class="btn-full btn-white" data-i18n="contactUs">Biz bilan bog'lanish</button>
             </div>
         </div>
     </div>
@@ -1035,31 +1067,31 @@
     <div class="container">
         <div class="contact-box">
             <div class="contact-text">
-                <h2>Biz bilan bog'laning</h2>
-                <p>Har qanday savol yoki muammo bo‘yicha gaplashishga tayyormiz. Kontakt qoldiring – maslahatchilarimiz
+                <h2 data-i18n="contactUsTitle">Biz bilan bog'laning</h2>
+                <p data-i18n="contactUsDesc">Har qanday savol yoki muammo bo‘yicha gaplashishga tayyormiz. Kontakt qoldiring – maslahatchilarimiz
                     tez orada siz bilan bog‘lanib, PayPeak qanday yordam berishi mumkinligini batafsil aytib beradi.</p>
             </div>
             <div class="contact-form">
                 <form id="contactForm">
                     <div class="form-group">
-                        <label for="name">Ism</label>
-                        <input type="text" id="name" placeholder="Ismingizni kiriting" required>
+                        <label for="name" data-i18n="formName">Ism</label>
+                        <input type="text" id="name" data-i18n="formNamePlaceholder" placeholder="Ismingizni kiriting" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone">Telefon raqam</label>
-                        <input type="text" id="phone" placeholder="+998" required>
+                        <label for="phone" data-i18n="formPhone">Telefon raqam</label>
+                        <input type="text" id="phone" data-i18n="formPhonePlaceholder" placeholder="+998" required>
                     </div>
                     <div class="form-group">
-                        <label for="business">Biznesingiz</label>
-                        <textarea id="business" placeholder="Biznesingiz haqida" required></textarea>
+                        <label for="business" data-i18n="formBusiness">Biznesingiz</label>
+                        <textarea id="business" data-i18n="formBusinessPlaceholder" placeholder="Biznesingiz haqida" required></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Yuborish ➔</button>
+                    <button type="submit" class="btn-submit" data-i18n="formSubmit">Yuborish ➔</button>
                 </form>
                 <div id="successMessage" class="success-message">
                     <div class="modal-overlay">
                         <div class="modal-box">
                             <div class="modal-header">
-                                <h2>Biz bilan bog’laning</h2>
+                                <h2 data-i18n="successMessageTitle">Biz bilan bog’laning</h2>
 
                             </div>
 
@@ -1068,13 +1100,13 @@
                                     <img src="image/message-success.png" alt="Message Success" height="40">
                                 </div>
 
-                                <p>
+                                <p data-i18n="successMessageText">
                                     Sizning xabaringiz muvaffaqiyatli yuborildi,<br>
                                     tez orada siz bilan aloqaga chiqib,<br>
                                     maxsulotimiz to’g’risida to’liq ma’lumot beriladi
                                 </p>
 
-                                <button class="btn-tushunarli">Tushunarli</button>
+                                <button class="btn-tushunarli" data-i18n="btnGotIt">Tushunarli</button>
                             </div>
                         </div>
                     </div>
@@ -1091,7 +1123,7 @@
         </div>
         <div class="footer-contact">
             <div class="contact-item">
-                <span class="contact-label"><img src="image/call.png" alt="Call Icon" width="12" style="margin-right: 2px;">Telefon raqam</span>
+                <span class="contact-label" data-i18n="footerPhone"><img src="image/call.png" alt="Call Icon" width="12" style="margin-right: 2px;">Telefon raqam</span>
                 <span class="contact-value"><a href="tel:+998938096494" style="color: inherit; text-decoration: none;">+998938096494</a></span>
             </div>
             <div class="social-icons">
@@ -1104,6 +1136,31 @@
 </footer>
 
 <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('language') || 'uz';
+        setLanguage(savedLang);
+    });
+
+    async function setLanguage(lang) {
+        const response = await fetch(`${lang}.json`);
+        const translations = await response.json();
+
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[key]) {
+                if (element.hasAttribute('placeholder')) {
+                    element.setAttribute('placeholder', translations[key]);
+                } else {
+                    element.innerHTML = translations[key];
+                }
+            }
+        });
+
+        document.documentElement.lang = lang;
+        localStorage.setItem('language', lang);
+    }
+
+
     document.getElementById('contactForm').addEventListener('submit', function (event) {
         event.preventDefault();
 

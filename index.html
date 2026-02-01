@@ -94,9 +94,13 @@
         }
 
         .flag-icon {
-            width: 21px;
-            height: 15px;
-            background: linear-gradient(to bottom, #00B731 33%, #FFFFFF 33%, #FFFFFF 66%, #03BCDB 66%); /* Simple CSS flag approx */
+            width: 24px;
+            height: 16px;
+            display: inline-block;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            vertical-align: middle;
             border-radius: 2px;
             border: 1px solid #eee;
         }
@@ -887,8 +891,6 @@
         .lang-switch:hover .lang-switch-dropdown {
             display: block;
         }
-
-
     </style>
 </head>
 <body>
@@ -1123,7 +1125,7 @@
         </div>
         <div class="footer-contact">
             <div class="contact-item">
-                <span class="contact-label" data-i18n="footerPhone"><img src="image/call.png" alt="Call Icon" width="12" style="margin-right: 2px;">Telefon raqam</span>
+                <span class="contact-label"> <img src="image/call.png" alt="Call Icon" width="12" style="margin-right: 2px;">Telefon raqam</span>
                 <span class="contact-value"><a href="tel:+998938096494" style="color: inherit; text-decoration: none;">+998938096494</a></span>
             </div>
             <div class="social-icons">
@@ -1155,6 +1157,10 @@
                 }
             }
         });
+
+        const flagIcon = document.querySelector('.flag-icon');
+        const flagFileName = lang === 'en' ? 'us' : lang;
+        flagIcon.style.backgroundImage = `url('image/flags/${flagFileName}.svg')`;
 
         document.documentElement.lang = lang;
         localStorage.setItem('language', lang);
